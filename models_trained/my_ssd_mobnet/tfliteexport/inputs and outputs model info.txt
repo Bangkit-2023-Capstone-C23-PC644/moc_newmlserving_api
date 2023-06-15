@@ -1,0 +1,17 @@
+--saved_model_dir=Documents/Tensorflow/workspace/models/my_ssd_mobnet/tfliteexport\saved_model
+
+--output_file=Documents/Tensorflow/workspace/models/my_ssd_mobnet/tfliteexport\saved_model\detect.tflite
+
+
+
+--input_shapes=1,300,300,3
+--input_arrays=normalized_input_image_tensor
+--output_arrays=[
+	'TFLite_Detection_PostProcess',
+	'TFLite_Detection_PostProcess:1',
+	'TFLite_Detection_PostProcess:2',
+	'TFLite_Detection_PostProcess:3'
+	]
+
+--inference_type=FLOAT
+--allow_custom_ops
