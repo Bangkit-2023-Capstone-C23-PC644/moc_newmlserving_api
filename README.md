@@ -3,6 +3,11 @@
 
 This is the new ML Serving api that's replacing the old one. It improves the model accuracy by reworking and retraining the old model. We're using GCP's compute engine  this time instead of app engine because of its flexibility and lack of time for implementing a correct docker solution
 
+## Authors
+
+- [Doni Febrian](https://www.github.com/peepeeyanto)
+- [Alvan Alfiansyah](https://www.github.com/alvansoleh)
+
 
 ## Deployment
 1. make an ubuntu-based compute engine instance
@@ -58,7 +63,20 @@ $ cp ~/models/research/moc_newmlserving_api/*  ~/models/research
 ```bash
 $ pip install -r requirements.txt
 ```
-14. start the server
+14. start the server (note that you can change the number of workers here)
 ```bash
 $ gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind :8080 app1:app
 ```
+
+## API Reference
+
+#### Process image
+This endpoint is for extracting the estimated number of people in the room from a JPEG/PNG image
+
+```http
+  POST /predict
+```
+
+| Fields | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `file` | `JPEG/PNG Image` | **Required**. Your image that need to be processed |
